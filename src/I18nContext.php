@@ -26,8 +26,10 @@ abstract class I18nContext extends Context
    */
   protected function _attemptLanguages()
   {
-    return array_unique(
-      array_merge($this->_preferredLanguages(), $this->request()->getLanguages(), [static::DEFAULT_LANGUAGE])
+    return array_filter(
+      array_unique(
+        array_merge($this->_preferredLanguages(), $this->request()->getLanguages(), [static::DEFAULT_LANGUAGE])
+      )
     );
   }
 
